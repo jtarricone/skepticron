@@ -17,7 +17,7 @@ object Main extends CommandIOApp(
       App.About.opts orElse
       App.Mascot.opts
     ).map{
-      case t: App.Train => App.Train.run[IO](t.corpus, t.placeholder).as(ExitCode.Success)
+      case t: App.Train => App.Train.run[IO](t).as(ExitCode.Success)
       case g: App.Generate => App.Generate.run[IO](g.length).as(ExitCode.Success)
       case _: App.About => App.About.run[IO]().as(ExitCode.Success)
       case _: App.Mascot => App.Mascot.run[IO]().as(ExitCode.Success)
